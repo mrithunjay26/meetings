@@ -3,13 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amazing Meeting App</title>
+    <title>Alaric Public Relations Conference Room - PR Central</title>
+    <meta name="description" content="Join our public relations conference room for collaborative discussions and events.">
+    <link rel="icon" type="image/png" href="1.png"> <!-- Tab icon -->
+    <meta property="og:image" content="1.jpg"> <!-- Image for SEO -->
     <style>
         html, body {
             height: 100%;
             margin: 0;
             padding: 0;
-            overflow: hidden; 
+            overflow: hidden; /* Prevent scrolling */
         }
         #jaas-container {
             width: 100%;
@@ -24,10 +27,12 @@
             border: 0;
         }
     </style>
+    <!-- Load external API asynchronously -->
     <script src="https://8x8.vc/vpaas-magic-cookie-4c9beebdb1984397b0d98260424fcce7/external_api.js" async></script>
 </head>
 <body>
 <div id="jaas-container">
+    <!-- Meeting iframe will be injected here -->
 </div>
 
 <script>
@@ -35,16 +40,17 @@
         const api = new JitsiMeetExternalAPI("8x8.vc", {
             roomName: "vpaas-magic-cookie-4c9beebdb1984397b0d98260424fcce7/SampleAppSurprisedTraumasBounceSpecifically",
             parentNode: document.querySelector('#jaas-container'),
+            // Customize meeting options here
             configOverwrite: {
-                prejoinPageEnabled: false, 
-                enableClosePage: true, 
-                disableRemoteMute: false, 
-                enableNoAudioDetection: true, 
-                enableNoisyMicDetection: true, 
-                startWithVideoMuted: true, 
-                startWithAudioMuted: false,
-                disableProfile: false,
-                enableFeaturesBasedOnToken: true,
+                prejoinPageEnabled: false, // Disable pre-join screen
+                enableClosePage: true, // Allow closing the meeting
+                disableRemoteMute: false, // Allow remote participants to mute/unmute
+                enableNoAudioDetection: true, // Notify when a participant has no audio
+                enableNoisyMicDetection: true, // Notify when participant's microphone is noisy
+                startWithVideoMuted: true, // Start with video muted
+                startWithAudioMuted: false, // Start with audio unmuted
+                disableProfile: false, // Enable user profiles
+                enableFeaturesBasedOnToken: true, // Enable features based on JWT token
             },
             interfaceConfigOverwrite: {
                 TOOLBAR_BUTTONS: [
