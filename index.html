@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazing Meeting App</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden; 
+        }
+        #jaas-container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+    </style>
+    <script src="https://8x8.vc/vpaas-magic-cookie-4c9beebdb1984397b0d98260424fcce7/external_api.js" async></script>
+</head>
+<body>
+<div id="jaas-container">
+</div>
+
+<script>
+    window.onload = () => {
+        const api = new JitsiMeetExternalAPI("8x8.vc", {
+            roomName: "vpaas-magic-cookie-4c9beebdb1984397b0d98260424fcce7/SampleAppSurprisedTraumasBounceSpecifically",
+            parentNode: document.querySelector('#jaas-container'),
+            configOverwrite: {
+                prejoinPageEnabled: false, 
+                enableClosePage: true, 
+                disableRemoteMute: false, 
+                enableNoAudioDetection: true, 
+                enableNoisyMicDetection: true, 
+                startWithVideoMuted: true, 
+                startWithAudioMuted: false,
+                disableProfile: false,
+                enableFeaturesBasedOnToken: true,
+            },
+            interfaceConfigOverwrite: {
+                TOOLBAR_BUTTONS: [
+                    'microphone', 'camera', 'closedcaptions', 'desktop', 'fullscreen',
+                    'fodeviceselection', 'hangup', 'profile', 'chat', 'recording',
+                    'livestreaming', 'etherpad', 'sharedvideo', 'settings', 'raisehand',
+                    'videoquality', 'filmstrip', 'feedback', 'stats', 'shortcuts',
+                    'tileview', 'videobackgroundblur', 'download', 'help', 'mute-everyone',
+                    'security', 'invite', 'participants', 'feedback'
+                ],
+            },
+        });
+    };
+</script>
+</body>
+</html>
